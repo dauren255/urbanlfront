@@ -24,10 +24,6 @@ export class AllOrdersComponent implements AfterViewInit {
         private appConfirm: AppConfirmService) {
     }
 
-    navigate(row: Order) {
-
-    }
-
     ngAfterViewInit() {
         this.appLoader.open();
         this.ordersService.getAllOrders().subscribe(res => {
