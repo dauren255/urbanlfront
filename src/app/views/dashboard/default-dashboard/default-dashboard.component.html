@@ -1,0 +1,94 @@
+<!-- Dashboard card row -->
+<div fxLayout="row wrap">
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+    <mat-card>
+      <mat-card-title fxLayoutAlign="start center">
+        <small class="text-muted">Total Sales</small>
+        <span fxFlex></span>
+        <mat-chip
+        class="icon-chip" 
+        color="primary" 
+        selected="true"><mat-icon>trending_up</mat-icon>20%</mat-chip>
+      </mat-card-title>
+      <mat-card-content>
+        <h3 class="m-0 font-normal">22,450</h3>
+        <small class="text-muted">Monthly</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+    <mat-card>
+      <mat-card-title>
+        <small class="text-muted">Revenue</small>
+        <span fxFlex></span>
+        <mat-chip
+        class="icon-chip" 
+        color="accent" 
+        selected="true"><mat-icon>trending_up</mat-icon>10%</mat-chip>
+      </mat-card-title>
+      <mat-card-content>
+        <h3 class="m-0 font-normal">377,670</h3>
+        <small class="text-muted">Monthly</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+    <mat-card>
+      <mat-card-title>
+        <small class="text-muted">Traffic</small>
+        <span fxFlex></span>
+        <mat-chip
+        class="icon-chip" 
+        color="accent" 
+        selected="true"><mat-icon>trending_up</mat-icon>9%</mat-chip>
+      </mat-card-title>
+      <mat-card-content>
+        <h3 class="m-0 font-normal">54,845</h3>
+        <small class="text-muted">Monthly</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [@animate]="{value:'*',params:{delay:'300ms',scale:'.9'}}">
+    <mat-card>
+      <mat-card-title>
+        <small class="text-muted">New User</small>
+        <span fxFlex></span>
+        <mat-chip
+        class="icon-chip" 
+        color="warn" 
+        selected="true"><mat-icon>trending_down</mat-icon>2%</mat-chip>
+      </mat-card-title>
+      <mat-card-content>
+        <h3 class="m-0 font-normal">245</h3>
+        <small class="text-muted">Monthly</small>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Fullwidth chart -->
+<div fxLayout="row wrap" [@animate]="{value:'*',params:{y:'25px',delay:'300ms'}}">
+  <div fxFlex="100">
+    <mat-card class="default">
+      <mat-card-title class="">
+        <span>Orders</span>
+        <span fxFlex></span>
+      </mat-card-title>
+      <mat-card-subtitle>Orders vs New user registrations</mat-card-subtitle>
+      <mat-card-content class="p-0" [style.height]="'240px'">
+        <canvas 
+          height="240"
+          baseChart 
+          class="chart m-0"
+          [datasets]="lineChartSteppedData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

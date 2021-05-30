@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": "https://urbanlogistics.herokuapp.com/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
+
