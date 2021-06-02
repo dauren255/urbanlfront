@@ -1,8 +1,7 @@
 import {Routes} from '@angular/router';
 import {AdminLayoutComponent} from './shared/components/layouts/admin-layout/admin-layout.component';
 import {AuthLayoutComponent} from './shared/components/layouts/auth-layout/auth-layout.component';
-import {AuthGuard} from './shared/services/auth/auth.guard';
-import {DefaultDashboardComponent} from './views/dashboard/default-dashboard/default-dashboard.component';
+import {OrderComponent} from './views/order/order/order.component';
 
 export const rootRouterConfig: Routes = [
     {
@@ -30,7 +29,17 @@ export const rootRouterConfig: Routes = [
                 loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
                 data: {title: 'Dashboard'}
             }
-
+        ]
+    },
+    {
+        path: '',
+        component: AdminLayoutComponent,
+        children: [
+            {
+                path: 'order',
+                loadChildren: () => import('./views/order/order.module').then(m => m.OrderModule),
+                data: {title: 'Order'}
+            }
         ]
     },
     {

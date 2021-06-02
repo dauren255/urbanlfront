@@ -4,6 +4,8 @@ import {Order} from '../../../shared/models/order.model';
 import {OrdersService} from '../../../shared/services/orders.service';
 import {AppLoaderService} from '../../../shared/services/app-loader/app-loader.service';
 import {AppConfirmService} from '../../../shared/services/app-confirm/app-confirm.service';
+import {DatePipe} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-all-orders',
@@ -21,7 +23,9 @@ export class AllOrdersComponent implements AfterViewInit {
     constructor(
         private ordersService: OrdersService,
         private appLoader: AppLoaderService,
-        private appConfirm: AppConfirmService) {
+        private appConfirm: AppConfirmService,
+        public datePipe: DatePipe,
+        private router: Router) {
     }
 
     ngAfterViewInit() {
@@ -37,5 +41,12 @@ export class AllOrdersComponent implements AfterViewInit {
         );
     }
 
+    datePattern(date: Date): any {
+        return this.datePipe.transform(date, 'MMM d, y, h:mm:ss a');
+    }
+
+    // getRecord(row: number) {
+    //     this.router.navigateByUrl('order/' + row);
+    // }
 
 }

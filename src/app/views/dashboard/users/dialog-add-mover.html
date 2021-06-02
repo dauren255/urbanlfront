@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Добавить Водителя</h1>
+<form>
+    <mat-form-field class="example-full-width">
+        <mat-label>Имя</mat-label>
+        <input matInput placeholder="Имя" [formControl]="name" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Фамилия</mat-label>
+        <input matInput placeholder="Фамилия" [formControl]="surname" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Название машины</mat-label>
+        <input matInput placeholder="Машина" [formControl]="carName" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Номер машины</mat-label>
+        <input matInput placeholder="Номер машины" [formControl]="carNumber" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Данные о машине</mat-label>
+        <input matInput placeholder="Данные о машине" [formControl]="carData" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Водительское удостоверения (Категория)</mat-label>
+        <input matInput placeholder="Категория" [formControl]="driverLicense" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Логин</mat-label>
+        <input matInput placeholder="Логин" [formControl]="username" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Пароль</mat-label>
+        <input matInput placeholder="Пароль" [formControl]="password" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Номер телефона</mat-label>
+        <input matInput placeholder="Номер телефона" [formControl]="phoneNumber" required>
+    </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="createMover()">Создать Водителя</button>
+</div>

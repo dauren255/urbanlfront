@@ -4,6 +4,7 @@ import {OrdersService} from '../../../shared/services/orders.service';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Order} from '../../../shared/models/order.model';
 import {AppConfirmService} from '../../../shared/services/app-confirm/app-confirm.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'app-orders',
@@ -22,7 +23,8 @@ export class OrdersComponent implements AfterViewInit {
     constructor(
         private ordersService: OrdersService,
         private appLoader: AppLoaderService,
-        private appConfirm: AppConfirmService
+        private appConfirm: AppConfirmService,
+        public datePipe: DatePipe
     ) {
     }
 
@@ -39,4 +41,7 @@ export class OrdersComponent implements AfterViewInit {
         );
     }
 
+    datePattern(date: Date): any {
+        return this.datePipe.transform(date, 'MMM d, y, h:mm:ss a');
+    }
 }

@@ -1,0 +1,30 @@
+<mat-list>
+    <mat-list-item><b>ID:                   </b> {{order.id}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Company:              </b> {{company.name}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Mover:                </b> {{moverUser.name}} {{moverUser.surname}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>User:                 </b> {{user.name}} {{user.surname}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Start Date:           </b> {{order.startDate}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>End Date:             </b> {{order.endDate}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Arrival Place:        </b> {{arrival.locationName}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Destination Place:    </b> {{destination.locationName}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Status:               </b> {{order.status}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Rating:               </b> {{order.rating}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item><b>Price:                </b> {{order.price}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-dialog-actions align="center" *ngIf="order.status=='ACTIVE'">
+        <button mat-raised-button color="primary" (click)="openDialog()">Выбрать Водителя</button>
+    </div>
+    <div mat-dialog-actions align="center" *ngIf="order.status=='FINISHED_BY_MOVER' || order.status=='IN_WORK'">
+        <button mat-raised-button color="primary" (click)="setFinish()">Закончить Работу в качестве Менеджера</button>
+    </div>
+</mat-list>

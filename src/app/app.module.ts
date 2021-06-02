@@ -23,6 +23,14 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ErrorHandlerService} from './shared/services/error-handler.service';
 import {TokenInterceptor} from './shared/helpers/TokenInterceptor';
 import {ErrorInterceptor} from './shared/helpers/ErrorInterceptor';
+import {DatePipe} from '@angular/common';
+import {DialogOrderSetWorker} from './views/order/order/order.component';
+import {MatSelectModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {OrdersService} from './shared/services/orders.service';
+import {UsersService} from './shared/services/users.service';
+import {DialogAddMover} from './views/dashboard/users/users.component';
 
 
 // AoT requires an exported function for factories
@@ -49,17 +57,34 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
             }
         }),
         InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true}),
-        RouterModule.forRoot(rootRouterConfig, {useHash: false})
+        RouterModule.forRoot(rootRouterConfig, {useHash: false}),
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule
     ],
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        DialogOrderSetWorker,
+        DialogAddMover
+    ],
     providers: [
+        DatePipe,
         {provide: ErrorHandler, useClass: ErrorHandlerService},
         {provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
         {provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG},
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+        OrdersService,
+        UsersService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [
+        DialogOrderSetWorker,
+        DialogAddMover
+    ],
 })
 export class AppModule {
 }

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppLoaderService} from './app-loader/app-loader.service';
 import {Router} from '@angular/router';
 import jwt_decode from 'jwt-decode';
+import {UserRole} from '../models/user.role.model';
 
 @Injectable()
 export class AuthenticationService {
@@ -50,5 +51,18 @@ export class AuthenticationService {
 
     public getUsername(): string {
         return this.getDecodedAccessToken(this.getToken()).sub;
+    }
+
+    public getRoles(): UserRole[] {
+        return this.getDecodedAccessToken(this.getToken()).authorities;
+    }
+
+    public isAdmin(): boolean {
+        // @ts-ignore
+        return this.getRoles().includes('ADMIN');
+    }
+    public isUser(): boolean {
+        // @ts-ignore
+        return this.getRoles().includes('USER');
     }
 }

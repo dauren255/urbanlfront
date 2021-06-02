@@ -3,9 +3,11 @@ import {Status} from './status.model';
 import {User} from './user.model';
 import {Photo} from './photo.model';
 import {Location} from './location.model';
+import {Company} from './company.model';
 
 export class Order {
-    id: number;
+    id?: number;
+    company?: Company;
     mover?: Mover;
     user: User;
     startDate: Date;
@@ -14,5 +16,6 @@ export class Order {
     destinationPlace: Location;
     status: Status;
     rating?: number;
+    price?: number;
     photo?: Photo[];
 }

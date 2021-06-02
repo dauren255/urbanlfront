@@ -15,8 +15,11 @@ import {SharedDirectivesModule} from './directives/shared-directives.module';
 import {AuthenticationService} from './services/authentication.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptor} from './helpers/TokenInterceptor';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
     imports: [
         CommonModule,
         SharedComponentsModule,

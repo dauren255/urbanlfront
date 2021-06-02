@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Выберите Водителя</h1>
+<form>
+    <mat-form-field appearance="fill">
+        <mat-label>Водитель</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="mover">
+            <mat-option *ngFor="let mov of movers" [value]="mov">
+                {{mov.user.username}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <p> Выбранный Водитель: <span *ngIf="selectedValue.user!=null">{{selectedValue.user.username}}</span> </p>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="setWorked(selectedValue.id)">Выбрать Водителя</button>
+</div>
